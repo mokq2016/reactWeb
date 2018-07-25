@@ -26,3 +26,13 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+.main-header{
+  background: #fff;
+  line-height: 50px;
+  height: 50px;
+  padding: 0 21px;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.05);
+}
+.main-header .ant-breadcrumb{
+  line-height: inherit;
+}
