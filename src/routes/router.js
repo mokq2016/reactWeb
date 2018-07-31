@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Button from "../components/Button/Button";
 import App from "../App";
+import Login from '../pages/login/login'
 
 const Cart = () => <h3>Cart</h3>;
 const routes = [
@@ -20,8 +21,8 @@ const routes = [
     ]
   },
   {
-    path: "/Cart",
-    component: Cart
+    path: "/login",
+    component: Login
   }
 ];
 const RouteWithSubRoutes = route => (
