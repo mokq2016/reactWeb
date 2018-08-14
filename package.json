@@ -28,6 +28,7 @@
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
+    "less": "^3.8.1",
     "object-assign": "4.1.1",
     "particles.js": "^2.0.0",
     "postcss-flexbugs-fixes": "3.2.0",
@@ -54,6 +55,7 @@
   },
   "devDependencies": {
     "babel-plugin-import": "^1.8.0",
+    "less-loader": "^4.1.0",
     "react-app-rewired": "^1.5.2"
   },
   "jest": {
