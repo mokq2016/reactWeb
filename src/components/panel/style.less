@@ -37,11 +37,14 @@
         width: 30px;
         color: #999;
         font-size: 14px;
-        font-weight: normal;
+        font-weight: 400;
         text-align: center;
         &:hover {
           opacity: 1;
           color: @primary-color;
+        }
+        .anticon{
+          font-family: 'Icomoon'
         }
       }
     }
@@ -58,6 +61,11 @@
       padding: 15px;
       width: 100%;
       flex: auto;
+    }
+  }
+  &.panel-collapsed {
+    .antui-panel-body {
+      max-height: 10px;
     }
   }
 }
