@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Button from "../components/Button/Button";
 import App from "../App";
-import Login from '../pages/login/login'
+import Login from "../pages/login/login";
+import Category from "../pages/category/category";
 
 const Cart = () => <h3>Cart</h3>;
 const routes = [
@@ -17,6 +18,10 @@ const routes = [
       {
         path: "/cart",
         component: Cart
+      },
+      {
+        path: "/category",
+        component: Category
       }
     ]
   },
@@ -38,7 +43,9 @@ const RouteWithSubRoutes = route => (
 
 const RouteConfigExample = () => (
   <div>
-    {routes.map((route, i) => <RouteWithSubRoutes key={i} {...route} />)}
+    {routes.map((route, i) => (
+      <RouteWithSubRoutes key={i} {...route} />
+    ))}
   </div>
 );
 

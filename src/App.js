@@ -7,9 +7,6 @@ import "./App.css";
 import LeftMenu from "./components/leftMenu";
 
 const { Header, Sider, Content } = Layout;
-const { SubMenu } = Menu;
-const Bus = () => <h3>Bus</h3>;
-const Bus2 = () => <h3>Bu2s</h3>;
 class App extends Component {
   constructor(props) {
     super(props);
@@ -34,7 +31,7 @@ class App extends Component {
                 ))}
               </Breadcrumb>
             </Header>
-            <div style={{ padding: "24px" }}>
+            <div>
               <Switch>
                 {this.props.routes.map((item, index) => (
                   <Route

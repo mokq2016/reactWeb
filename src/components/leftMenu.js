@@ -35,12 +35,12 @@ export default class LeftMenu extends Component {
         ]
       },
       {
-        name: "css学习",
+        name: "商城管理",
         icon: "book",
         menuItemArr: [
           {
-            path: "/main/button",
-            name: "Button"
+            path: "/main/category",
+            name: "分类管理"
           },
           {
             path: "/main/icon",
