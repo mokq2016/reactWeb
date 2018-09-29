@@ -25,6 +25,10 @@ export default class LeftMenu extends Component {
             name: "Icon"
           },
           {
+            path: "/main/datepicker",
+            name: "DatePicker"
+          },
+          {
             path: "/main/dropdown",
             name: "下拉菜单"
           },
