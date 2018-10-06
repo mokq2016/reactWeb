@@ -8,9 +8,9 @@ export default class LeftMenu extends Component {
   render() {
     const menuArr = [
       {
-        name: "仪表盘",
+        name: "echarts",
         icon: "dashboard",
-        path: "/main/dashboard"
+        path: "/main/echarts"
       },
       {
         name: "antd组件",
@@ -29,12 +29,12 @@ export default class LeftMenu extends Component {
             name: "DatePicker"
           },
           {
-            path: "/main/dropdown",
-            name: "下拉菜单"
+            path: "/main/select",
+            name: "选择器"
           },
           {
-            path: "/main/menu",
-            name: "导航菜单"
+            path: "/main/pagination",
+            name: "分页器"
           }
         ]
       },
@@ -64,7 +64,7 @@ export default class LeftMenu extends Component {
     return (
       <Menu
         mode="inline"
-        defaultSelectedKeys={["仪表盘"]}
+        defaultSelectedKeys={["echarts"]}
         style={{
           height: "100%",
           borderRight: 0

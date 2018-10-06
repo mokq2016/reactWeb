@@ -4,7 +4,10 @@ import Button from "../components/Button/Button";
 import App from "../App";
 import Login from "../pages/login/login";
 import Category from "../pages/category/category";
+import Echarts from "../pages/echarts/Echarts";
 import DatePicker from '../components/DatePicker/DatePicker';
+import Pagination from '../components/Pagination/Pagination';
+import Select from '../components/Select/Select';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
 import {LocaleProvider}  from 'antd'
 
@@ -23,12 +26,24 @@ const routes = [
         component: DatePicker
       },
       {
+        path: "/select",
+        component: Select
+      },
+      {
+        path: "/pagination",
+        component: Pagination
+      },
+      {
         path: "/cart",
         component: Cart
       },
       {
         path: "/category",
         component: Category
+      },
+      {
+        path: "/echarts",
+        component: Echarts
       }
     ]
   },
@@ -45,7 +60,7 @@ const RouteWithSubRoutes = route =>(
     path={route.path}
     render={(props) => (
       // pass the sub-routes down to keep nesting
-      route.path == '/'?(<Redirect to="/main/dashboard"/>):(
+      route.path === '/'?(<Redirect to="/main/echarts"/>):(
       <route.component {...props} routes={route.routes} />
     ))} />
   </LocaleProvider>

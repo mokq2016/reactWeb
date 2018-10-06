@@ -11,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pageArr: ["仪表盘"]
+      pageArr: ["echarts"]
     };
   }
   render() {
@@ -27,7 +27,7 @@ class App extends Component {
               <Breadcrumb>
                 <Breadcrumb.Item>主页</Breadcrumb.Item>
                 {this.state.pageArr.map((item, index) => (
-                  <Breadcrumb.Item>{item}</Breadcrumb.Item>
+                  <Breadcrumb.Item key={index}>{item}</Breadcrumb.Item>
                 ))}
               </Breadcrumb>
             </Header>
