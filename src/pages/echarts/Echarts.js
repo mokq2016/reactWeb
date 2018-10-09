@@ -4,11 +4,13 @@ import {Row, Col } from 'antd'
 import {Chart,Axis,Tooltip,Geom,Legend,Label,Coord } from 'bizcharts'
 import DataSet from '@antv/data-set';
 
+
+
 export default class extends Component {
   render() {
     return (
       <div style={{padding:'24px'}}>
-        <Panel>
+        <Panel height={260}>
           <Line1></Line1>
         </Panel>
         <Row gutter={20}>
@@ -18,7 +20,7 @@ export default class extends Component {
               </Panel>
             </Col>
             <Col md={8}>
-              <Panel title="饼图" >
+              <Panel title="饼图" height={260}>
                 <Pie1 refs='pie'/>
               </Panel>
             </Col>
@@ -66,7 +68,7 @@ const Line1 = porps => {
     }
   };
   return (
-    <Chart data={dv} scale={cols} forceFit height={260}>
+    <Chart data={dv} scale={cols}>
       <Legend />
       <Axis name="month" />
       <Axis name="temperature" label={{ formatter: val => `${val}°C` }} />
@@ -110,7 +112,7 @@ const Pie1 = props => {
   };
   console.log(props)
   return (
-    <Chart data={dv} scale={cols} padding={10} height={260} width={380}>
+    <Chart data={dv} scale={cols} padding={10}>
       <Coord type={'theta'} radius={0.75} innerRadius={0.6} />
       <Axis name="percent" />
       <Legend

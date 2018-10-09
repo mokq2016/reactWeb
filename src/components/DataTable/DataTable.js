@@ -10,12 +10,10 @@ export default class DataTable extends Component {
     };
   }
   onSelectChange = (selectedRowKeys, selectedRows) => {
-    console.log(selectedRowKeys, selectedRows);
-    //let selectedRows =
     this.setState({
       selectedRowKeys
     });
-  };
+  }
 
   componentWillReceiveProps(nextProps) {
     console.log(nextProps);
