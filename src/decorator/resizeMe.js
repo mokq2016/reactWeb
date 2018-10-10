@@ -23,7 +23,14 @@ const resizeMe = (config = defaultConfig) => {
       componentDidMount() {
         const element = this.element.parentNode;
         this.resizeSensor = new ResizeSensor(element, this.onResizeStrategy);
+        this.onResizeStrategy();
       }
+      
+      componentWillUnmount() {
+        const element = this.element.parentNode;
+        this.resizeSensor.detach(element, this.onResizeStrategy);
+      }
+      
       onResize = ()=>{
           const element = this.element.parentNode;
           const { width, height, paddingLeft, paddingRight, paddingTop, paddingBottom } = getComputedStyle(element);

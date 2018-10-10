@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import { Icon } from "antd";
 import cx from "classnames";
-import resizeMe from '../../decorator/resizeMe';
 import CSSAnimate from "../cssAnimate/index";
 import "./style.less";
 
-@resizeMe({
-  refreshRate:10
-})
+
 export default class Panel extends Component {
   static defaultProps = {
     prefix: "antui-panel"
