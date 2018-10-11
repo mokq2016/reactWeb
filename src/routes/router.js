@@ -9,6 +9,7 @@ import DatePicker from '../components/DatePicker/DatePicker';
 import Pagination from '../components/Pagination/Pagination';
 import Select from '../components/Select/Select';
 import zhCN from 'antd/lib/locale-provider/zh_CN';
+import BundleComponent from '../components/Bundle/Bundle';
 import {LocaleProvider}  from 'antd'
 
 const Cart = () => <h3>Cart</h3>;
@@ -16,40 +17,49 @@ const routes = [
   {
     path: "/main",
     component: App,
+    componentPath:'../components/Button/Button',
     routes: [
       {
         path: "/button",
-        component: Button
+        component: Button,
+        componentPath:'../components/Button/Button'
       },
       {
         path: "/datepicker",
-        component: DatePicker
+        component: DatePicker,
+        componentPath:'../components/Button/Button'
       },
       {
         path: "/select",
-        component: Select
+        component: Select,
+        componentPath:'../components/Button/Button'
       },
       {
         path: "/pagination",
-        component: Pagination
+        component: Pagination,
+        componentPath:'../components/Button/Button'
       },
       {
         path: "/cart",
-        component: Cart
+        component: Cart,
+        componentPath:'../components/Button/Button'
       },
       {
         path: "/category",
-        component: Category
+        component: Category,
+        componentPath:'../components/Button/Button'
       },
       {
         path: "/echarts",
-        component: Echarts
+        component: Echarts,
+        componentPath:'../components/Button/Button'
       }
     ]
   },
   {
     path: "/login",
-    component: Login
+    component: Login,
+    componentPath:'../components/Button/Button'
   },{
     path: "/"
   }
@@ -58,11 +68,17 @@ const RouteWithSubRoutes = route =>(
   <LocaleProvider locale={zhCN}>
    <Route  
     path={route.path}
-    render={(props) => (
-      // pass the sub-routes down to keep nesting
-      route.path === '/'?(<Redirect to="/main/echarts"/>):(
-      <route.component {...props} routes={route.routes} />
-    ))} />
+    // render={(props) => (
+    //   // pass the sub-routes down to keep nesting
+    //   route.path === '/'?(<Redirect to="/main/echarts"/>):(
+    //   //<route.component {...props} routes={route.routes} />
+    //   <BundleComponent load={() => import(route.componentPath)}>
+    //     {(Component) => <Component {...props}/>}
+    //   </BundleComponent>
+    // ))}
+    component={(props) => <BundleComponent load={() => import(route.componentPath)}>
+         {(Component) => <Component {...props}/>}
+       </BundleComponent>} />
   </LocaleProvider>
   
  
