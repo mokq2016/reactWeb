@@ -1,36 +1,34 @@
-import { Component } from 'react'
+import React, { Component } from 'react';
 
-export default class Bundle extends Component {
-  constructor(props) {
+export default function asyncComponent(importComponent) {
+
+  class AsyncComponent extends Component {
+
+    constructor(props) {
       super(props);
+
       this.state = {
-          mod: null
+        component: null,
       };
-  }
+    }
 
-  componentWillMount() {
-      this.load(this.props)
-  }
+    async componentDidMount() {
+      const { default: component } = await importComponent();
 
-  componentWillReceiveProps(nextProps) {
-      if (nextProps.load !== this.props.load) {
-          this.load(nextProps)
-      }
-  }
-
-  load(props) {
       this.setState({
-          mod: null
+        component: component
       });
-      //注意这里，使用Promise对象; mod.default导出默认
-      props.load().then((mod) => {
-          this.setState({
-              mod: mod.default ? mod.default : mod
-          });
-      });
+    }
+
+    render() {
+      const C = this.state.component;
+
+      return C
+        ? <C {...this.props} />
+        : null;
+    }
+
   }
 
-  render() {
-      return this.state.mod ? this.props.children(this.state.mod) : null;
-  }
+  return AsyncComponent;
 }
