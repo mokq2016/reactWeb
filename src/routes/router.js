@@ -20,35 +20,31 @@ const routes = [
   {
     path: "/main",
     component:asyncComponent(() => import('../App')),
-    routes: [
-
-
-      
-      // {
-      //   path: "/button",
-      //   component: Button,
-      //   componentPath:'../components/Button/Button'
-      // },
-      // {
-      //   path: "/datepicker",
-      //   component: DatePicker
-      // },
-      // {
-      //   path: "/select",
-      //   component: Select
-      // },
-      // {
-      //   path: "/pagination",
-      //   component: Pagination
-      // },
-      // {
-      //   path: "/category",
-      //   component: Category
-      // },
-      // {
-      //   path: "/echarts",
-      //   component: Echarts
-      // }
+    routes: [     
+      {
+        path: "/main/button",
+        component: asyncComponent(() => import('../components/Button/Button')),
+      },
+      {
+        path: "/main/datepicker",
+        component: asyncComponent(() => import('../components/DatePicker/DatePicker'))
+      },
+      {
+        path: "/main/select",
+        component: asyncComponent(() => import('../components/Select/Select'))
+      },
+      {
+        path: "/main/pagination",
+        component: asyncComponent(() => import('../components/Pagination/Pagination'))
+      },
+      {
+        path: "/main/category",
+        component: asyncComponent(() => import('../pages/category/category'))
+      },
+      {
+        path: "/main/echarts",
+        component: asyncComponent(() => import('../pages/echarts/Echarts'))
+      }
     ]
   },
   {
@@ -56,37 +52,20 @@ const routes = [
     component: asyncComponent(() => import('../pages/login/login'))
   },{
     path: "/",
-    component: asyncComponent(() => import('../pages/echarts/Echarts'))
-  },{
-    path: "/sds",
-    component: asyncComponent(() => import('../components/Pagination/Pagination'))
+    component: asyncComponent(() => import('../App'))
   }
 ];
-const RouteWithSubRoutes = route =>(
-
-   <Route  
-    path={route.path}
-    // render={(props) => (
-    //   // pass the sub-routes down to keep nesting
-    //   route.path === '/'?(<Redirect to="/main/echarts"/>):(
-    //   //<route.component {...props} routes={route.routes} />
-    //   <BundleComponent load={() => import(route.componentPath)}>
-    //     {(Component) => <Component {...props}/>}
-    //   </BundleComponent>
-    // ))}
-    component={route.component} />
-);
 
 const RouteConfigExample = () => (
   <LocaleProvider locale={zhCN}>
-  
+    <div>
+     {routes.map((route, i) => 
+       route.path == '/'?(<Redirect path="/" to='/main/button' />):
+      (<Route  key={i}
+        path={route.path} render={ props => <route.component {...props} routes={route.routes}/>} ></Route>)
       
-     {routes.map((route, i) => (
-      //<RouteWithSubRoutes key={i} {...route} />
-      <Route  
-        path={route.path} render={ props => <route.component {...props}/>} ></Route>
-    ))} 
-    
+    )} 
+    </div>
   </LocaleProvider>
 );
 

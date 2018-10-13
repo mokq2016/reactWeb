@@ -15,6 +15,7 @@ class App extends Component {
     };
   }
   render() {
+    console.log(this.props.routes)
     return (
       <Layout>
         <Header />
@@ -36,7 +37,7 @@ class App extends Component {
                 {this.props.routes.map((item, index) => (
                   <Route
                     key={index}
-                    path={"/main" + item.path}
+                    path={ item.path}
                     component={item.component}
                   />
                 ))}
